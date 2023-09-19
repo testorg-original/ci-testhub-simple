@@ -41,5 +41,6 @@ jobs:
               gh_repo = Sys.getenv("GITHUB_REPOSITORY"),
               pr_number = Sys.getenv("PR_NUMBER")
           )
+          print(v)
           hubValidations::check_for_errors(v)
         shell: Rscript {0}
