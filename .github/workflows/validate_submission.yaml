@@ -27,7 +27,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install libcurl4-openssl-dev libv8-dev
 
-      - name: Run validations
+      - name: Install HubValidations
         run: |
           install.packages("remotes")
           remotes::install_github("Infectious-Disease-Modeling-Hubs/hubValidations", ref = "validate_pr")
@@ -37,9 +37,9 @@ jobs:
         env:
           PR_NUMBER: ${{ github.event.number }}
         run: |
-          v <- HubValidations::validate_pr(
+          v <- hubValidations::validate_pr(
               gh_repo = Sys.getenv("GITHUB_REPOSITORY"),
               pr_number = Sys.getenv("PR_NUMBER")
           )
-          HubValidations::check_for_errors(v)
+          hubValidations::check_for_errors(v)
         shell: Rscript {0}
