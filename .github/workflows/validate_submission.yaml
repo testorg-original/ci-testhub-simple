@@ -30,7 +30,7 @@ jobs:
       - name: Install HubValidations
         run: |
           install.packages("remotes")
-          remotes::install_github("Infectious-Disease-Modeling-Hubs/hubValidations", ref = "validate_pr")
+          remotes::install_github("testorg-original/hubValidations", ref = "validate_pr")
         shell: Rscript {0}
 
       - name: Run validations
